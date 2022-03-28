@@ -1,0 +1,150 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.wrapper {
+  display: grid;
+  grid-template-rows: 100px 5fr;
+}
+.wrapper-home {
+  display: grid;
+  grid-template-rows: 100px 5fr;
+}
+.main-container {
+  padding: 40px;
+  h1 {
+    text-align: center;
+    padding-bottom: 30px;
+    font-size: 50px;
+    font-weight: 900;
+  }
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.input-container-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#nav-bar {
+  border-bottom: 1px solid gray;
+  display: grid;
+  grid-template-columns: 6fr 1fr 1fr;
+  text-align: center;
+  align-items: center;
+  box-shadow: 5px 5px 9px;
+}
+.nav-item {
+  display: none;
+}
+#nav-bar-logo {
+  text-align: start;
+  padding-left: 40px;
+  font-size: 24px;
+}
+.signin-link,
+.signup-link {
+  display: inline;
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+  font-weight: 400;
+}
+
+.id,
+.pw,
+.pw-check,
+.student-number,
+.major {
+  width: 300px;
+  height: 35px;
+  padding-left: 10px;
+  border-radius: 10px;
+  border: 0.5px solid gray;
+}
+.id-login {
+  width: 300px;
+  height: 45px;
+  padding-left: 10px;
+  border-radius: 20px 20px 0px 0px;
+  border: 0.5px solid gray;
+}
+.pw-login {
+  width: 300px;
+  height: 45px;
+  padding-left: 10px;
+  border-radius: 0px 0px 20px 20px;
+  border: 0.5px solid gray;
+}
+.login {
+  width: 300px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 900;
+  margin-top: 30px;
+  border-radius: 20px 20px 0px 0px;
+  background-color: #864adb;
+  color: aliceblue;
+
+  border: 0px;
+}
+.cancel {
+  width: 300px;
+  height: 40px;
+  border-radius: 0px 0px 20px 20px;
+  background-color: #e8dcf8;
+  color: #4c00b8;
+  border: 0px;
+}
+.login-login {
+  width: 300px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 900;
+  margin-top: 30px;
+  border-radius: 20px 20px 0px 0px;
+  background-color: #864adb;
+  color: aliceblue;
+
+  border: 0px;
+}
+.cancel-login {
+  width: 300px;
+  height: 40px;
+  border-radius: 0px 0px 20px 20px;
+  background-color: #e8dcf8;
+  color: #4c00b8;
+  border: 0px;
+}
+
+/*화면 줄어들면*/
+@media screen and (max-width: 786px) {
+  #nav-bar {
+    border-bottom: 1px solid gray;
+    display: grid;
+    grid-template-columns: 8fr 1fr;
+    text-align: start;
+    box-shadow: 5px 5px 9px;
+  }
+  #nav-bar-logo {
+    font-size: 18px;
+  }
+  .nav-item {
+    display: inline;
+  }
+  #aside-bar-btn {
+    display: inline;
+  }
+  .signin-link,
+  .signup-link {
+    display: none;
+  }
+}
