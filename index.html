@@ -13,11 +13,13 @@
   </head>
   <body>
     <div class="wrapper-home">
-      <nav id="nav-bar">
-        <strong id="nav-bar-logo">jaewooworld</strong>
-        <a class="signin-link" href="./login.html">Login</a
-        ><a class="signup-link" href="./index.html">Sign up</a>
-        <li class="nav-item dropdown">
+      <nav class="nav-bar">
+        <div class="nav-bar__logo">
+          <strong class="logo">jaewooworld</strong>
+        </div>
+        <a class="nav-bar__sign-in" href="./login.html">Login</a
+        ><a class="nav-bar__sign-up" href="./index.html">Sign up </a>
+        <li class="nav-bar__drop-down">
           <a
             class="nav-link dropdown-toggle"
             href="#"
@@ -26,7 +28,6 @@
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            +
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="./login.html">Login</a></li>
@@ -35,25 +36,17 @@
         </li>
       </nav>
 
-      <div class="main-container">
-        <h1 class="title">Sign up</h1>
-        <div class="input-container">
-          <input class="id" id="id-label" placeholder="아이디" />
-          <input class="pw" id="pw-label" placeholder="비밀번호" />
-          <input
-            class="pw-check"
-            id="pw-check-label"
-            placeholder="비밀번호 확인"
-          />
-          <input
-            class="student-number"
-            id="student-number-label"
-            placeholder="학번"
-          />
-          <input class="major" id="major-label" placeholder="전공" />
+      <div class="sign-up">
+        <h1 class="sign-up__title">Sign up</h1>
+        <div class="sign-up__input">
+          <input class="sign-up__input--id" placeholder="아이디" />
+          <input class="sign-up__input--pw" placeholder="비밀번호" />
+          <input class="sign-up__input--pw-check" placeholder="비밀번호 확인" />
+          <input class="sign-up__input--student-number" placeholder="학번" />
+          <input class="sign-up__input--major" placeholder="전공" />
 
-          <button class="login">Login</button>
-          <button class="cancel">cancel</button>
+          <button class="sign-up__input__btn--register">Register</button>
+          <button class="sign-up__input__btn--cancel">cancel</button>
         </div>
       </div>
     </div>
