@@ -9,7 +9,8 @@ body {
 .wrapper {
   display: grid;
   grid-template-rows: 100px 5fr;
-  /* nav-bar */ }
+  /* nav-bar */
+  /* input */ }
   .wrapper .nav-bar {
     border-bottom: 1px solid gray;
     display: grid;
@@ -75,7 +76,8 @@ body {
 .wrapper-home {
   display: grid;
   grid-template-rows: 100px 5fr;
-  /* nav-bar */ }
+  /* nav-bar */
+  /* input */ }
   .wrapper-home .nav-bar {
     border-bottom: 1px solid gray;
     display: grid;
@@ -146,4 +148,22 @@ body {
       display: inline; }
     .nav-bar .nav-bar__sign-in,
     .nav-bar .nav-bar__sign-up {
-      display: none; } }
+      display: none; }
+  .login .login__title {
+    font-size: 34px; }
+  .login .login__input--id, .login .login__input--pw {
+    width: 200px;
+    height: 30px; }
+  .login .login__input__btn--login, .login .login__input__btn--cancel {
+    font-size: 16px;
+    width: 200px;
+    height: 30px; }
+  .sign-up .sign-up__title {
+    font-size: 34px; }
+  .sign-up .sign-up__input--id, .sign-up .sign-up__input--pw, .sign-up .sign-up__input--pw-check, .sign-up .sign-up__input--student-number, .sign-up .sign-up__input--major {
+    width: 200px;
+    height: 30px; }
+  .sign-up .sign-up__input__btn--register, .sign-up .sign-up__input__btn--cancel {
+    font-size: 16px;
+    width: 200px;
+    height: 30px; } }
