@@ -132,12 +132,18 @@ body {
       &--pw,
       &--pw-check,
       &--student-number,
+      &--phone-number,
       &--major {
         width: 300px;
         height: 35px;
         padding-left: 10px;
         border-radius: 10px;
         border: 0.5px solid gray;
+      }
+      &__check--id-isEqual,
+      &__check--pw-isEqual {
+        font-size: 12px;
+        color: red;
       }
       &__btn--register {
         width: 300px;
@@ -161,7 +167,17 @@ body {
     }
   }
 }
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 /*화면 줄어들면*/
 @media screen and (max-width: 786px) {
   .nav-bar {
@@ -208,6 +224,7 @@ body {
       &--pw,
       &--pw-check,
       &--student-number,
+      &--phone-number,
       &--major {
         width: 200px;
         height: 30px;

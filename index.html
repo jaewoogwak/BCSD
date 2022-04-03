@@ -38,25 +38,44 @@
 
       <div class="sign-up">
         <h1 class="sign-up__title">Sign up</h1>
+
         <div class="sign-up__input">
-          <input class="sign-up__input--id" type="text" placeholder="아이디" />
+          <input
+            class="sign-up__input--id"
+            type="email"
+            placeholder="아이디"
+            oninput="isEmailForm(this)"
+            required
+          />
+          <div class="sign-up__input__check--id-isEqual"></div>
           <input
             class="sign-up__input--pw"
             type="password"
             placeholder="비밀번호"
+            required
           />
           <input
             class="sign-up__input--pw-check"
             type="password"
             placeholder="비밀번호 확인"
+            oninput="passwordChecker(this)"
+            required
           />
+          <div class="sign-up__input__check--pw-isEqual"></div>
           <input
             class="sign-up__input--student-number"
             type="number"
+            oninput="handleOnInput(this, 10)"
             placeholder="학번"
+            required
+            maxlength="5"
           />
-          <input class="sign-up__input--major" placeholder="전공" />
-
+          <input class="sign-up__input--major" placeholder="전공" readonly />
+          <input
+            class="sign-up__input--phone-number"
+            placeholder="전화번호"
+            oninput="autoHypen(this)"
+          />
           <button class="sign-up__input__btn--register">Register</button>
           <button class="sign-up__input__btn--cancel">cancel</button>
         </div>
@@ -68,5 +87,6 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <script src="index.js"></script>
   </body>
 </html>
