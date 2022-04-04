@@ -6,6 +6,8 @@ const isEmailForm = (e) => {
   let value = e.value;
   if (value.includes("@") && value.includes(".")) {
     idCheck.innerHTML = "";
+  } else if (value == "") {
+    idCheck.innerHTML = "";
   } else {
     console.log("notincluded", value);
     idCheck.innerHTML = "<strong>이메일 형식에 맞게 입력해주세요</strong>";
@@ -29,6 +31,8 @@ const passwordChecker = (e) => {
   let password = passwordInput.value;
   let passwordCheckValue = passwordCheckInput.value;
   if (password == passwordCheckValue) {
+    isPasswordEqual.innerHTML = "";
+  } else if (passwordCheckValue == "") {
     isPasswordEqual.innerHTML = "";
   } else {
     isPasswordEqual.innerHTML = "<strong>비밀번호가 일치하지 않습니다</strong>";
