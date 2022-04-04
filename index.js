@@ -1,37 +1,41 @@
 /* ID가 이메일 구조인지 체크 */
-const idInput = document.querySelector(".sign-up__input--id");
-const idCheck = document.querySelector(".sign-up__input__check--id-isEqual");
-const isEmailForm = (e) => {
-  console.log("isEmailform", e.value);
+let isEmailform = false;
+const EmailFormatChecker = (e) => {
+  const idCheck = document.querySelector(".sign-up__input__check--id-isEqual");
   let value = e.value;
+  // 정규식 공부하면 넣기
   if (value.includes("@") && value.includes(".")) {
+    idCheck.innerHTML = "<strong style='color:blue'>좋아요!</strong>";
+    isEmailform = true;
+  } else if (value == "") {
     idCheck.innerHTML = "";
+    isEmailform = false;
   } else {
-    console.log("notincluded", value);
     idCheck.innerHTML = "<strong>이메일 형식에 맞게 입력해주세요</strong>";
+    isEmailform = false;
   }
 };
+
 /* pw-check가 pw와 같은 값인지 체크 */
-const passwordInput = document.querySelector(".sign-up__input--pw");
-const passwordCheckInput = document.querySelector(".sign-up__input--pw-check");
-const isPasswordEqual = document.querySelector(
-  ".sign-up__input__check--pw-isEqual"
-);
-const body = document.querySelector("body");
-const onPasswordChange = (e) => {
-  console.log(e.value);
-  console.log(e ? e.target.value : "");
-};
-const onPasswordCheckChange = (e) => {
-  console.log(e.target ? e.target.value : "");
-};
+let isPasswordEqual = false;
+
+// 비밀번호 확인 핸들러
 const passwordChecker = (e) => {
+  const passwordInput = document.querySelector(".sign-up__input--pw");
+  const passwordRepeat = document.querySelector(".sign-up__input--pw-repeat");
+  const passwordCheck = document.querySelector(
+    ".sign-up__input__check--pw-isEqual"
+  );
+
   let password = passwordInput.value;
-  let passwordCheckValue = passwordCheckInput.value;
-  if (password == passwordCheckValue) {
-    isPasswordEqual.innerHTML = "";
+  let passwordCheckValue = passwordRepeat.value;
+
+  if (password == "" && passwordCheckValue == "") {
+    passwordCheck.innerHTML = "";
+  } else if (password == passwordCheckValue) {
+    passwordCheck.innerHTML = "<strong style='color:blue'>좋아요!</strong>";
   } else {
-    isPasswordEqual.innerHTML = "<strong>비밀번호가 일치하지 않습니다</strong>";
+    passwordCheck.innerHTML = "<strong>비밀번호가 일치하지 않습니다</strong>";
   }
   console.log(password, passwordCheckValue);
 };
@@ -39,8 +43,6 @@ const passwordChecker = (e) => {
 /* 학번 자릿수 제한 */
 /* 학번에 따라 전공 자동 입력 */
 const major = document.querySelector(".sign-up__input--major");
-const studentNumber = document.querySelector(".sign-up__input--student-number");
-
 const handleOnInput = (el, maxlength = 10) => {
   if (el.value.length > maxlength) {
     el.value = el.value.substr(0, maxlength);
@@ -79,8 +81,11 @@ const handleOnInput = (el, maxlength = 10) => {
 major.addEventListener("change", handleOnInput);
 
 /* 전화번호 하이픈 자동삽입 */
-const phoneNumber = document.querySelector(".sign-up__input--phone-number");
 const autoHypen = (e) => {
+  const phoneNumber = document.querySelector(".sign-up__input--phone-number");
+  const phoneNumberCheck = document.querySelector(
+    ".sign-up__input__check--phone-number-is-valid-format"
+  );
   // 숫자만 입력하게 해줌 (정규식)
   let value = e.value.replace(/\D+/g, "");
   const maxLength = 11;
@@ -102,6 +107,12 @@ const autoHypen = (e) => {
     result += value[i];
   }
   phoneNumber.value = result;
+  if (phoneNumber.value.length == 13) {
+    phoneNumberCheck.innerHTML =
+      "<strong style='color : blue'>좋아요!</strong>";
+  } else {
+    phoneNumberCheck.innerHTML = "";
+  }
 };
 
 /* 회원가입 버튼 클릭 */

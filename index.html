@@ -44,7 +44,8 @@
             class="sign-up__input--id"
             type="email"
             placeholder="아이디"
-            oninput="isEmailForm(this)"
+            oninput="EmailFormatChecker(this)"
+            autofocus
             required
           />
           <div class="sign-up__input__check--id-isEqual"></div>
@@ -52,10 +53,11 @@
             class="sign-up__input--pw"
             type="password"
             placeholder="비밀번호"
+            oninput="passwordChecker(this)"
             required
           />
           <input
-            class="sign-up__input--pw-check"
+            class="sign-up__input--pw-repeat"
             type="password"
             placeholder="비밀번호 확인"
             oninput="passwordChecker(this)"
@@ -68,7 +70,6 @@
             oninput="handleOnInput(this, 10)"
             placeholder="학번"
             required
-            maxlength="5"
           />
           <input class="sign-up__input--major" placeholder="전공" readonly />
           <input
@@ -76,6 +77,9 @@
             placeholder="전화번호"
             oninput="autoHypen(this)"
           />
+          <div
+            class="sign-up__input__check--phone-number-is-valid-format"
+          ></div>
           <button class="sign-up__input__btn--register">Register</button>
           <button class="sign-up__input__btn--cancel">cancel</button>
         </div>
