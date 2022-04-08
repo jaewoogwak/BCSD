@@ -3,8 +3,17 @@ let isEmailform = false;
 const EmailFormatChecker = (e) => {
   const idCheck = document.querySelector(".sign-up__input__check--id-isEqual");
   let value = e.value;
+  var regEmail =
+    /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+
+  if (regEmail.test(value) === true) {
+    isEmailform = true;
+  } else {
+    isEmailform = false;
+  }
+
   // 정규식 공부하면 넣기
-  if (value.includes("@") && value.includes(".")) {
+  if (isEmailform) {
     idCheck.innerHTML = "<strong style='color:blue'>좋아요!</strong>";
     isEmailform = true;
   } else if (value == "") {

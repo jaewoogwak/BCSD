@@ -3,14 +3,17 @@
 const ID = "jaewoo";
 const PW = "123456";
 
+let idInput = document.querySelector(".login__input--id");
+let pwInput = document.querySelector(".login__input--pw");
 const loginBtn = document.querySelector(".login__input__btn--login");
 const login = () => {
-  alert("로그인");
+  if (idInput.value == "" || pwInput.value == "") {
+    alert("아이디 또는 패스워드를 입력해주세요");
+    idInput.value = "";
+    pwInput.value = "";
+  } else alert("로그인");
 };
 loginBtn.addEventListener("click", login);
-
-const idInput = document.querySelector(".login__input--id");
-const pwInput = document.querySelector(".login__input--pw");
 
 const onIdChange = (e) => {
   //console.log(e.value);
