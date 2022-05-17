@@ -1,3 +1,4 @@
+const a = 1;
 const img = document.querySelector(".image");
 const getUsers = () => {
   axios
