@@ -1,3 +1,20 @@
+/* 고양이 */
+const img = document.querySelector(".image");
+
+const getUsers = () => {
+  axios
+    .get("https://api.thecatapi.com/v1/images/search?size=full")
+    .then(async (response) => {
+      const users = response.data;
+      console.log(`GET users`, users[0].url);
+      img.src = users[0].url;
+    })
+    .catch((error) => console.error(error));
+};
+
+getUsers();
+
+
 /* ID가 이메일 구조인지 체크 */
 const idInput = document.querySelector(".sign-up__input--id");
 const idCheck = document.querySelector(".sign-up__input__check--id-isEqual");
