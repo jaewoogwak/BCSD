@@ -1,4 +1,4 @@
-const a = 1;
+// get cat image
 const img = document.querySelector(".image");
 const getUsers = () => {
   axios
@@ -16,11 +16,20 @@ getUsers();
 /* 로그인 버튼 클릭 */
 const ID = "jaewoo";
 const PW = "123456";
+/* cookie expire time */
+const expireTime = 60 * 60 * 24 * 3;
 
 let idInput = document.querySelector(".login__input--id");
 let pwInput = document.querySelector(".login__input--pw");
 const loginBtn = document.querySelector(".login__input__btn--login");
 const login = () => {
+  // cookie
+  console.log("click login btn");
+  console.log(idInput.value, pwInput.value);
+  const userID = idInput.value;
+  const userPW = pwInput.value;
+  document.cookie = `user_id=${userID};max-age=${expireTime}`;
+  document.cookie = `user_pw=${userPW};max-age=${expireTime}`;
   if (idInput.value == "" || pwInput.value == "") {
     alert("아이디 또는 패스워드를 입력해주세요");
     idInput.value = "";
@@ -40,3 +49,5 @@ const isValidUser = () => {
     alert("로그인!");
   }
 };
+idInput.addEventListener("change", isValidUser);
+pwInput.addEventListener("change", isValidUser);
