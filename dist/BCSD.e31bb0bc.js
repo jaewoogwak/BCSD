@@ -126,19 +126,20 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+// get cat image
 var img = document.querySelector(".image");
 
-var getUsers = function getUsers() {
+var getImageData = function getImageData() {
   axios.get("https://api.thecatapi.com/v1/images/search?size=full").then( /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(response) {
-      var users;
+      var dataURL;
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              users = response.data;
-              console.log("GET users", users[0].url);
-              img.src = users[0].url;
+              dataURL = response.data[0].url;
+              console.log("GET users", dataURL);
+              img.src = dataURL;
 
             case 3:
             case "end":
@@ -156,7 +157,7 @@ var getUsers = function getUsers() {
   });
 };
 
-getUsers();
+getImageData();
 /* ID가 이메일 구조인지 체크 */
 
 var isEmailform = false;
@@ -344,7 +345,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55164" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62925" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

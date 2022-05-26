@@ -1,16 +1,17 @@
+// get cat image
 const img = document.querySelector(".image");
-const getUsers = () => {
+const getImageData = () => {
   axios
     .get("https://api.thecatapi.com/v1/images/search?size=full")
     .then(async (response) => {
-      const users = response.data;
-      console.log(`GET users`, users[0].url);
-      img.src = users[0].url;
+      const dataURL = response.data[0].url;
+      console.log(`GET users`, dataURL);
+      img.src = dataURL;
     })
     .catch((error) => console.error(error));
 };
 
-getUsers();
+getImageData();
 
 /* ID가 이메일 구조인지 체크 */
 let isEmailform = false;

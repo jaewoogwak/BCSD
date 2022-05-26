@@ -129,17 +129,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 // get cat image
 var img = document.querySelector(".image");
 
-var getUsers = function getUsers() {
+var getImageData = function getImageData() {
   axios.get("https://api.thecatapi.com/v1/images/search?size=full").then( /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(response) {
-      var users;
+      var dataURL;
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              users = response.data;
-              console.log("GET users", users[0].url);
-              img.src = users[0].url;
+              dataURL = response.data[0].url;
+              console.log("GET users", dataURL);
+              img.src = dataURL;
 
             case 3:
             case "end":
@@ -157,31 +157,61 @@ var getUsers = function getUsers() {
   });
 };
 
-getUsers();
+getImageData();
 /* 로그인 버튼 클릭 */
 
 var ID = "jaewoo";
 var PW = "123456";
 /* cookie expire time */
 
-var expireTime = 60 * 60 * 24 * 3;
+var expireTime_72h = 60 * 60 * 24 * 3;
+var expireTime_1h = 60 * 60;
 var idInput = document.querySelector(".login__input--id");
 var pwInput = document.querySelector(".login__input--pw");
 var loginBtn = document.querySelector(".login__input__btn--login");
 
+var getCookie = function getCookie(name) {
+  var matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") + "=([^;]*)"));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+};
+
 var login = function login() {
-  // cookie
+  console.log("getCookie", getCookie("blocked"));
+
+  if (getCookie("blocked")) {
+    // 로그인 실패 5회 이상이면 로그인 차단.
+    alert("로그인을 5회 이상 실패해서 차단되었습니다. 잠시 뒤에 다시 시도헤주세요");
+    return;
+  } // cookie
+
+
   console.log("click login btn");
   console.log(idInput.value, pwInput.value);
+
+  if (localStorage.getItem("count") == null) {
+    console.log("Not in!"); // 로컬스토리지에 카운팅 플래그 존재하지 않으면, (처음 로그인 시도 -> 실패일 때)
+
+    localStorage.setItem("count", 0);
+  } else if (localStorage.getItem("count") == 5) {
+    // 로그인 실패 누적 4회 초과 시 -> 로그인 1시간 동안 차단 쿠키 생성.
+    document.cookie = "blocked=true;max-age=".concat(expireTime_1h);
+  }
+
+  var failCount = Number(localStorage.getItem("count"));
+  console.log("failCount", failCount);
   var userID = idInput.value;
   var userPW = pwInput.value;
-  document.cookie = "user_id=".concat(userID, ";max-age=").concat(expireTime);
-  document.cookie = "user_pw=".concat(userPW, ";max-age=").concat(expireTime);
+  document.cookie = "user_id=".concat(userID, ";max-age=").concat(expireTime_72h);
+  document.cookie = "user_pw=".concat(userPW, ";max-age=").concat(expireTime_72h);
 
   if (idInput.value == "" || pwInput.value == "") {
     alert("아이디 또는 패스워드를 입력해주세요");
     idInput.value = "";
     pwInput.value = "";
+  } else if (idInput.value != ID || pwInput.value != PW) {
+    alert("아이디 또는 비밀번호가 틀렸습니다.");
+    failCount += 1;
+    localStorage.setItem("count", failCount);
   } else alert("로그인");
 };
 
@@ -229,7 +259,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55164" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62925" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
