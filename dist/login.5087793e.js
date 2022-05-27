@@ -177,8 +177,6 @@ var getCookie = function getCookie(name) {
 };
 
 var login = function login() {
-  console.log("getCookie", getCookie("blocked"));
-
   if (getCookie("blocked")) {
     // 로그인 실패 5회 이상이면 로그인 차단.
     alert("로그인을 5회 이상 실패해서 차단되었습니다. 잠시 뒤에 다시 시도헤주세요");
@@ -187,12 +185,9 @@ var login = function login() {
 
 
   var failCount = Number(localStorage.getItem("count"));
-  console.log("click login btn");
-  console.log(idInput.value, pwInput.value);
 
   if (localStorage.getItem("count") == null) {
-    console.log("Not in!"); // 로컬스토리지에 카운팅 플래그 존재하지 않으면, (처음 로그인 시도 -> 실패일 때)
-
+    // 로컬스토리지에 카운팅 플래그 존재하지 않으면, (처음 로그인 시도 -> 실패일 때)
     localStorage.setItem("count", 0);
   } else if (localStorage.getItem("count") == 4) {
     // 로그인 실패 누적 4회 초과 시 -> 로그인 1시간 동안 차단 쿠키 생성.
@@ -203,7 +198,6 @@ var login = function login() {
     return;
   }
 
-  console.log("failCount", failCount);
   var userID = idInput.value;
   var userPW = pwInput.value;
   document.cookie = "user_id=".concat(userID, ";max-age=").concat(expireTime_72h);
@@ -238,7 +232,6 @@ var onClickLogOut = function onClickLogOut() {
   sessionStorage.clear();
   var date = new Date();
   date.setDate(date.getDate() - 1);
-  console.log(date);
   document.cookie = "user_id=jaewoo; Expires=".concat(date.toUTCString());
   document.cookie = "blocked=true; Expires=".concat(date.toUTCString());
   alert("로그아웃");

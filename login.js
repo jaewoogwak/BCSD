@@ -35,7 +35,6 @@ const getCookie = (name) => {
   return matches ? decodeURIComponent(matches[1]) : undefined;
 };
 const login = () => {
-  console.log("getCookie", getCookie("blocked"));
   if (getCookie("blocked")) {
     // 로그인 실패 5회 이상이면 로그인 차단.
     alert(
@@ -46,10 +45,7 @@ const login = () => {
   // cookie
   let failCount = Number(localStorage.getItem("count"));
 
-  console.log("click login btn");
-  console.log(idInput.value, pwInput.value);
   if (localStorage.getItem("count") == null) {
-    console.log("Not in!");
     // 로컬스토리지에 카운팅 플래그 존재하지 않으면, (처음 로그인 시도 -> 실패일 때)
     localStorage.setItem("count", 0);
   } else if (localStorage.getItem("count") == 4) {
@@ -62,7 +58,6 @@ const login = () => {
     );
     return;
   }
-  console.log("failCount", failCount);
   const userID = idInput.value;
   const userPW = pwInput.value;
   document.cookie = `user_id=${userID};max-age=${expireTime_72h}`;
@@ -96,7 +91,6 @@ const onClickLogOut = () => {
   sessionStorage.clear();
   let date = new Date();
   date.setDate(date.getDate() - 1);
-  console.log(date);
   document.cookie = `user_id=jaewoo; Expires=${date.toUTCString()}`;
   document.cookie = `blocked=true; Expires=${date.toUTCString()}`;
 
