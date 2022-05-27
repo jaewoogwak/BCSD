@@ -169,6 +169,7 @@ var expireTime_1h = 60 * 60;
 var idInput = document.querySelector(".login__input--id");
 var pwInput = document.querySelector(".login__input--pw");
 var loginBtn = document.querySelector(".login__input__btn--login");
+var logoutBtn = document.querySelector(".login__input__btn--cancel");
 
 var getCookie = function getCookie(name) {
   var matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") + "=([^;]*)"));
@@ -185,6 +186,7 @@ var login = function login() {
   } // cookie
 
 
+  var failCount = Number(localStorage.getItem("count"));
   console.log("click login btn");
   console.log(idInput.value, pwInput.value);
 
@@ -192,17 +194,21 @@ var login = function login() {
     console.log("Not in!"); // 로컬스토리지에 카운팅 플래그 존재하지 않으면, (처음 로그인 시도 -> 실패일 때)
 
     localStorage.setItem("count", 0);
-  } else if (localStorage.getItem("count") == 5) {
+  } else if (localStorage.getItem("count") == 4) {
     // 로그인 실패 누적 4회 초과 시 -> 로그인 1시간 동안 차단 쿠키 생성.
     document.cookie = "blocked=true;max-age=".concat(expireTime_1h);
+    failCount += 1;
+    localStorage.setItem("count", failCount);
+    alert("로그인을 5회 이상 실패해서 차단되었습니다. 잠시 뒤에 다시 시도헤주세요");
+    return;
   }
 
-  var failCount = Number(localStorage.getItem("count"));
   console.log("failCount", failCount);
   var userID = idInput.value;
   var userPW = pwInput.value;
   document.cookie = "user_id=".concat(userID, ";max-age=").concat(expireTime_72h);
-  document.cookie = "user_pw=".concat(userPW, ";max-age=").concat(expireTime_72h);
+  localStorage.setItem("userID", userID);
+  sessionStorage.setItem("userID", userID); //document.cookie = `user_pw=${userPW};max-age=${expireTime_72h}`;
 
   if (idInput.value == "" || pwInput.value == "") {
     alert("아이디 또는 패스워드를 입력해주세요");
@@ -224,13 +230,23 @@ var onPasswordChange = function onPasswordChange(e) {};
 
 var isValidUser = function isValidUser() {
   // console.log(idInput.value, pwInput.value);
-  if (idInput.value == ID && pwInput.value == PW) {
-    alert("로그인!");
-  }
+  if (idInput.value == ID && pwInput.value == PW) {}
+};
+
+var onClickLogOut = function onClickLogOut() {
+  localStorage.clear();
+  sessionStorage.clear();
+  var date = new Date();
+  date.setDate(date.getDate() - 1);
+  console.log(date);
+  document.cookie = "user_id=jaewoo; Expires=".concat(date.toUTCString());
+  document.cookie = "blocked=true; Expires=".concat(date.toUTCString());
+  alert("로그아웃");
 };
 
 idInput.addEventListener("change", isValidUser);
 pwInput.addEventListener("change", isValidUser);
+logoutBtn.addEventListener("click", onClickLogOut);
 },{}],"../../.nvm/versions/node/v16.15.0/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -259,7 +275,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62925" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56436" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
