@@ -212,7 +212,10 @@ var login = function login() {
     alert("아이디 또는 비밀번호가 틀렸습니다.");
     failCount += 1;
     localStorage.setItem("count", failCount);
-  } else alert("로그인");
+  } else {
+    alert("로그인");
+    localStorage.setItem("count", 0);
+  }
 };
 
 loginBtn.addEventListener("click", login);
@@ -268,7 +271,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56436" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57592" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

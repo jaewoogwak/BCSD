@@ -72,7 +72,10 @@ const login = () => {
     alert("아이디 또는 비밀번호가 틀렸습니다.");
     failCount += 1;
     localStorage.setItem("count", failCount);
-  } else alert("로그인");
+  } else {
+    alert("로그인");
+    localStorage.setItem("count", 0);
+  }
 };
 loginBtn.addEventListener("click", login);
 
