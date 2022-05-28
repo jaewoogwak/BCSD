@@ -214,11 +214,20 @@ var login = function login() {
     localStorage.setItem("count", failCount);
   } else {
     alert("로그인");
+    ActivateLogOutBtn();
     localStorage.setItem("count", 0);
   }
 };
 
 loginBtn.addEventListener("click", login);
+
+var ActivateLogOutBtn = function ActivateLogOutBtn() {
+  logoutBtn.style = "display : block";
+};
+
+var DeActivateLogOutBtn = function DeActivateLogOutBtn() {
+  logoutBtn.style = "display : none";
+};
 
 var onIdChange = function onIdChange(e) {//console.log(e.value);
 };
@@ -238,6 +247,7 @@ var onClickLogOut = function onClickLogOut() {
   document.cookie = "user_id=jaewoo; Expires=".concat(date.toUTCString());
   document.cookie = "blocked=true; Expires=".concat(date.toUTCString());
   alert("로그아웃");
+  DeActivateLogOutBtn();
 };
 
 idInput.addEventListener("change", isValidUser);
@@ -271,7 +281,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57592" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59703" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

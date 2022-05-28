@@ -74,10 +74,18 @@ const login = () => {
     localStorage.setItem("count", failCount);
   } else {
     alert("로그인");
+    ActivateLogOutBtn();
     localStorage.setItem("count", 0);
   }
 };
 loginBtn.addEventListener("click", login);
+
+const ActivateLogOutBtn = () => {
+  logoutBtn.style = "display : block";
+};
+const DeActivateLogOutBtn = () => {
+  logoutBtn.style = "display : none";
+};
 
 const onIdChange = (e) => {
   //console.log(e.value);
@@ -98,6 +106,7 @@ const onClickLogOut = () => {
   document.cookie = `blocked=true; Expires=${date.toUTCString()}`;
 
   alert("로그아웃");
+  DeActivateLogOutBtn();
 };
 
 idInput.addEventListener("change", isValidUser);

@@ -4,151 +4,189 @@ body {
   width: 100%;
   height: 100%;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 .wrapper {
   display: grid;
   grid-template-rows: 100px 5fr;
   /* nav-bar */
-  /* input */ }
-  .wrapper .nav-bar {
-    border-bottom: 1px solid gray;
-    display: grid;
-    grid-template-columns: 6fr 1fr 1fr;
-    text-align: center;
-    align-items: center;
-    box-shadow: 5px 5px 9px; }
-    .wrapper .nav-bar__logo {
-      text-align: start;
-      padding-left: 40px;
-      font-size: 24px; }
-    .wrapper .nav-bar__sign-in, .wrapper .nav-bar__sign-up {
-      display: inline;
-      text-decoration: none;
-      font-size: 22px;
-      color: black;
-      font-weight: 400; }
-    .wrapper .nav-bar__drop-down {
-      display: none; }
-  .wrapper .login {
-    padding: 40px;
-    justify-content: center; }
-    .wrapper .login__title {
-      text-align: center;
-      padding-bottom: 30px;
-      font-size: 50px;
-      font-weight: 900; }
-    .wrapper .login__input {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px; }
-      .wrapper .login__input--id {
-        width: 300px;
-        height: 45px;
-        padding-left: 10px;
-        border-radius: 20px 20px 0px 0px;
-        border: 0.5px solid gray; }
-      .wrapper .login__input--pw {
-        width: 300px;
-        height: 45px;
-        padding-left: 10px;
-        border-radius: 0px 0px 20px 20px;
-        border: 0.5px solid gray; }
-      .wrapper .login__input__btn--login {
-        width: 300px;
-        height: 50px;
-        font-size: 20px;
-        font-weight: 900;
-        margin-top: 30px;
-        border-radius: 20px 20px 0px 0px;
-        background-color: #864adb;
-        color: aliceblue;
-        border: 0px; }
-      .wrapper .login__input__btn--cancel {
-        width: 300px;
-        height: 40px;
-        border-radius: 0px 0px 20px 20px;
-        background-color: #e8dcf8;
-        color: #4c00b8;
-        border: 0px; }
+  /* input */
+}
+.wrapper .nav-bar {
+  border-bottom: 1px solid gray;
+  display: grid;
+  grid-template-columns: 6fr 1fr 1fr;
+  text-align: center;
+  align-items: center;
+  box-shadow: 5px 5px 9px;
+}
+.wrapper .nav-bar__logo {
+  text-align: start;
+  padding-left: 40px;
+  font-size: 24px;
+}
+.wrapper .nav-bar__sign-in,
+.wrapper .nav-bar__sign-up {
+  display: inline;
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+  font-weight: 400;
+}
+.wrapper .nav-bar__drop-down {
+  display: none;
+}
+.wrapper .login {
+  padding: 40px;
+  justify-content: center;
+}
+.wrapper .login__title {
+  text-align: center;
+  padding-bottom: 30px;
+  font-size: 50px;
+  font-weight: 900;
+}
+.wrapper .login__input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.wrapper .login__input--id {
+  width: 300px;
+  height: 45px;
+  padding-left: 10px;
+  border-radius: 20px 20px 0px 0px;
+  border: 0.5px solid gray;
+}
+.wrapper .login__input--pw {
+  width: 300px;
+  height: 45px;
+  padding-left: 10px;
+  border-radius: 0px 0px 20px 20px;
+  border: 0.5px solid gray;
+}
+.wrapper .login__input__btn--login {
+  width: 300px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 900;
+  margin-top: 30px;
+  border-radius: 20px 20px 0px 0px;
+  background-color: #864adb;
+  color: aliceblue;
+  border: 0px;
+}
+.wrapper .login__input__btn--cancel {
+  display: none;
+
+  width: 300px;
+  height: 40px;
+  border-radius: 0px 0px 20px 20px;
+  background-color: #e8dcf8;
+  color: #4c00b8;
+  border: 0px;
+}
 
 .wrapper-home {
   display: grid;
   grid-template-rows: 100px 5fr;
   /* nav-bar */
-  /* input */ }
-  .wrapper-home .nav-bar {
-    border-bottom: 1px solid gray;
-    display: grid;
-    grid-template-columns: 6fr 1fr 1fr;
-    text-align: center;
-    align-items: center;
-    box-shadow: 5px 5px 9px; }
-    .wrapper-home .nav-bar__logo {
-      text-align: start;
-      padding-left: 40px;
-      font-size: 24px; }
-    .wrapper-home .nav-bar__sign-in, .wrapper-home .nav-bar__sign-up {
-      display: inline;
-      text-decoration: none;
-      font-size: 22px;
-      color: black;
-      font-weight: 400; }
-    .wrapper-home .nav-bar__drop-down {
-      display: none; }
-  .wrapper-home .sign-up {
-    padding: 40px;
-    justify-content: center; }
-    .wrapper-home .sign-up__title {
-      text-align: center;
-      padding-bottom: 30px;
-      font-size: 50px;
-      font-weight: 900; }
-    .wrapper-home .sign-up__input {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px; }
-      .wrapper-home .sign-up__input--id, .wrapper-home .sign-up__input--pw, .wrapper-home .sign-up__input--pw-repeat, .wrapper-home .sign-up__input--student-number, .wrapper-home .sign-up__input--phone-number, .wrapper-home .sign-up__input--major {
-        width: 300px;
-        height: 35px;
-        padding-left: 10px;
-        border-radius: 10px;
-        border: 0.5px solid gray; }
-      .wrapper-home .sign-up__input__check--id-isEqual, .wrapper-home .sign-up__input__check--pw-isEqual, .wrapper-home .sign-up__input__check--phone-number-is-valid-format {
-        width: 300px;
-        padding-left: 15px;
-        text-align: left;
-        font-size: 12px;
-        color: red; }
-      .wrapper-home .sign-up__input__btn--register {
-        width: 300px;
-        height: 50px;
-        font-size: 20px;
-        font-weight: 900;
-        margin-top: 30px;
-        border-radius: 20px 20px 0px 0px;
-        background-color: #864adb;
-        color: aliceblue;
-        border: 0px; }
-      .wrapper-home .sign-up__input__btn--cancel {
-        width: 300px;
-        height: 40px;
-        border-radius: 0px 0px 20px 20px;
-        background-color: #e8dcf8;
-        color: #4c00b8;
-        border: 0px; }
+  /* input */
+}
+.wrapper-home .nav-bar {
+  border-bottom: 1px solid gray;
+  display: grid;
+  grid-template-columns: 6fr 1fr 1fr;
+  text-align: center;
+  align-items: center;
+  box-shadow: 5px 5px 9px;
+}
+.wrapper-home .nav-bar__logo {
+  text-align: start;
+  padding-left: 40px;
+  font-size: 24px;
+}
+.wrapper-home .nav-bar__sign-in,
+.wrapper-home .nav-bar__sign-up {
+  display: inline;
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+  font-weight: 400;
+}
+.wrapper-home .nav-bar__drop-down {
+  display: none;
+}
+.wrapper-home .sign-up {
+  padding: 40px;
+  justify-content: center;
+}
+.wrapper-home .sign-up__title {
+  text-align: center;
+  padding-bottom: 30px;
+  font-size: 50px;
+  font-weight: 900;
+}
+.wrapper-home .sign-up__input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.wrapper-home .sign-up__input--id,
+.wrapper-home .sign-up__input--pw,
+.wrapper-home .sign-up__input--pw-repeat,
+.wrapper-home .sign-up__input--student-number,
+.wrapper-home .sign-up__input--phone-number,
+.wrapper-home .sign-up__input--major {
+  width: 300px;
+  height: 35px;
+  padding-left: 10px;
+  border-radius: 10px;
+  border: 0.5px solid gray;
+}
+.wrapper-home .sign-up__input__check--id-isEqual,
+.wrapper-home .sign-up__input__check--pw-isEqual,
+.wrapper-home .sign-up__input__check--phone-number-is-valid-format {
+  width: 300px;
+  padding-left: 15px;
+  text-align: left;
+  font-size: 12px;
+  color: red;
+}
+.wrapper-home .sign-up__input__btn--register {
+  width: 300px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 900;
+  margin-top: 30px;
+  border-radius: 20px 20px 0px 0px;
+  background-color: #864adb;
+  color: aliceblue;
+  border: 0px;
+}
+.wrapper-home .sign-up__input__btn--cancel {
+  width: 300px;
+  height: 40px;
+  border-radius: 0px 0px 20px 20px;
+  background-color: #e8dcf8;
+  color: #4c00b8;
+  border: 0px;
+}
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
-  margin: 0; }
+  margin: 0;
+}
 
 /* Firefox */
 input[type="number"] {
-  -moz-appearance: textfield; }
+  -moz-appearance: textfield;
+}
 
 /*화면 줄어들면*/
 @media screen and (max-width: 786px) {
@@ -157,35 +195,57 @@ input[type="number"] {
     display: grid;
     grid-template-columns: 8fr 1fr;
     text-align: start;
-    box-shadow: 5px 5px 9px; }
-    .nav-bar .nav-bar__logo {
-      font-size: 18px; }
-    .nav-bar .nav-bar__drop-down {
-      display: inline; }
-    .nav-bar .nav-bar__sign-in,
-    .nav-bar .nav-bar__sign-up {
-      display: none; }
+    box-shadow: 5px 5px 9px;
+  }
+  .nav-bar .nav-bar__logo {
+    font-size: 18px;
+  }
+  .nav-bar .nav-bar__drop-down {
+    display: inline;
+  }
+  .nav-bar .nav-bar__sign-in,
+  .nav-bar .nav-bar__sign-up {
+    display: none;
+  }
   .login .login__title {
-    font-size: 34px; }
-  .login .login__input--id, .login .login__input--pw {
+    font-size: 34px;
+  }
+  .login .login__input--id,
+  .login .login__input--pw {
     width: 200px;
-    height: 30px; }
-  .login .login__input__btn--login, .login .login__input__btn--cancel {
+    height: 30px;
+  }
+  .login .login__input__btn--login,
+  .login .login__input__btn--cancel {
     font-size: 16px;
     width: 200px;
-    height: 30px; }
+    height: 30px;
+  }
   .sign-up .sign-up__title {
-    font-size: 34px; }
-  .sign-up .sign-up__input--id, .sign-up .sign-up__input--pw, .sign-up .sign-up__input--pw-repeat, .sign-up .sign-up__input--student-number, .sign-up .sign-up__input--phone-number, .sign-up .sign-up__input--major {
+    font-size: 34px;
+  }
+  .sign-up .sign-up__input--id,
+  .sign-up .sign-up__input--pw,
+  .sign-up .sign-up__input--pw-repeat,
+  .sign-up .sign-up__input--student-number,
+  .sign-up .sign-up__input--phone-number,
+  .sign-up .sign-up__input--major {
     width: 200px;
-    height: 30px; }
-  .sign-up .sign-up__input__btn--register, .sign-up .sign-up__input__btn--cancel {
+    height: 30px;
+  }
+  .sign-up .sign-up__input__btn--register,
+  .sign-up .sign-up__input__btn--cancel {
     font-size: 16px;
     width: 200px;
-    height: 30px; }
-  .sign-up .sign-up__input__check--id-isEqual, .sign-up .sign-up__input__check--pw-isEqual, .sign-up .sign-up__input__check--phone-number-is-valid-format {
+    height: 30px;
+  }
+  .sign-up .sign-up__input__check--id-isEqual,
+  .sign-up .sign-up__input__check--pw-isEqual,
+  .sign-up .sign-up__input__check--phone-number-is-valid-format {
     width: 200px;
     padding-left: 15px;
     text-align: left;
     font-size: 12px;
-    color: red; } }
+    color: red;
+  }
+}
